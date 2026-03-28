@@ -1,0 +1,64 @@
+{
+  "app": {
+    "title": "Holy Bible"
+  },
+  "search": {
+    "placeholder": "Search for a word...",
+    "loading": "Finding verses...",
+    "empty": "No results found for this word."
+  },
+  "settings": {
+    "title": "Settings",
+    "bible_label": "Change Bible Version",
+    "lang_label": "App Language",
+    "font_label": "Font Size",
+    "font_demo": "This is a demo text...",
+    "book_mode_label": "Book Selection Mode",
+    "book_mode_grid": "Grid (Abbreviations)",
+    "book_mode_list": "List (Full Names)",
+    "notif_time_label": "Daily Verse Time"
+  },
+  "history": {
+    "title": "Recent Reading"
+  },
+  "bookmarks": {
+    "title": "Bookmarks"
+  },
+  "highlights": {
+    "title": "Highlights"
+  },
+  "all_notes": {
+    "title": "Verse Notes"
+  },
+  "notes": {
+    "title": "Add Note",
+    "placeholder": "Write here...",
+    "save": "Save"
+  },
+  "contact": {
+    "title": "Any feedback?",
+    "version": "Version",
+    "author": "Developer",
+    "contact_us": "Contact Us",
+    "desc": "If you have any questions or suggestions, please contact us via email or call us."
+  },
+  "loading": {
+    "text": "Waiting..."
+  },
+  "nav": {
+    "search": "Search",
+    "history": "History",
+    "bookmarks": "Bookmarks",
+    "notes": "My Notes",
+    "highlights": "Highlights",
+    "info": "Any feedback?",
+    "share": "Share Bible",
+    "settings": "Settings"
+  },
+  "selection": {
+    "book": "Book",
+    "chapter": "Chapter",
+    "verse": "Verse",
+    "close": "Close"
+  }
+}

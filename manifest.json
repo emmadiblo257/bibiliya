@@ -1,0 +1,16 @@
+{
+  "name": "Bibiliya Yera",
+  "short_name": "Bibiliya",
+  "description": "Kinyarwanda Holy Bible",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#00897B",
+  "theme_color": "#00897B",
+  "icons": [
+    {
+      "src": "bible_cover_premium.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

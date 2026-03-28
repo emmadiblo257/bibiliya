@@ -1,0 +1,64 @@
+{
+  "app": {
+    "title": "Bibiliya Yera"
+  },
+  "search": {
+    "placeholder": "Shakisha ijambo...",
+    "loading": "Gutora imirongo...",
+    "empty": "Nta kintu yabonetse ku bivanye n’iryo jambo."
+  },
+  "settings": {
+    "title": "Gutunganaya ibirimwo",
+    "bible_label": "Guhindura Bibiliya",
+    "lang_label": "Ururimi rw'aplikasiyo",
+    "font_label": "Ubunini bw'indome",
+    "font_demo": "Uyu ni umwandiko wo kugererezako...",
+    "book_mode_label": "Uburyo bwo guhitamo ibitabo",
+    "book_mode_grid": "Grille (Abbreviations)",
+    "book_mode_list": "Liste (Noms complets)",
+    "notif_time_label": "Isaha y'umurongo w'umusi"
+  },
+  "history": {
+    "title": "Aho uheruka gusoma"
+  },
+  "bookmarks": {
+    "title": "Indanzi z'imirongo"
+  },
+  "highlights": {
+    "title": "Imirongo isize irangi"
+  },
+  "all_notes": {
+    "title": "Inyigisho ku mirongo"
+  },
+  "notes": {
+    "title": "Andika inyigisho",
+    "placeholder": "Andika hano...",
+    "save": "Bika"
+  },
+  "contact": {
+    "title": "Hari ico umenyesha?",
+    "version": "Version",
+    "author": "Umutunganyi",
+    "contact_us": "Twandikire",
+    "desc": "Niba ufite ikibazo cyangwa inyunganizi, twandikire kuri email yacu cyangwa uduhamagare."
+  },
+  "loading": {
+    "text": "Rindira..."
+  },
+  "nav": {
+    "search": "Shakisha",
+    "history": "Ibimaze gusomwa",
+    "bookmarks": "Indanzi z'imirongo",
+    "notes": "Inyigisho zanje",
+    "highlights": "Imirongo isize irangi",
+    "info": "Hari ico umenyesha?",
+    "share": "Sangira Bibiliya",
+    "settings": "Parametere"
+  },
+  "selection": {
+    "book": "Igitabu",
+    "chapter": "Igice",
+    "verse": "Umurongo",
+    "close": "Funga"
+  }
+}

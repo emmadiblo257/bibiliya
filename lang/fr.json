@@ -1,0 +1,64 @@
+{
+  "app": {
+    "title": "La Sainte Bible"
+  },
+  "search": {
+    "placeholder": "Rechercher un mot...",
+    "loading": "Recherche des versets...",
+    "empty": "Aucun résultat trouvé pour ce mot."
+  },
+  "settings": {
+    "title": "Paramètres",
+    "bible_label": "Changer la version",
+    "lang_label": "Langue de l'application",
+    "font_label": "Taille de la police",
+    "font_demo": "Ceci est un texte de démonstration...",
+    "book_mode_label": "Mode de sélection des livres",
+    "book_mode_grid": "Grille (Abréviations)",
+    "book_mode_list": "Liste (Noms complets)",
+    "notif_time_label": "Heure du verset du jour"
+  },
+  "history": {
+    "title": "Lectures récentes"
+  },
+  "bookmarks": {
+    "title": "Signets"
+  },
+  "highlights": {
+    "title": "Surlignages"
+  },
+  "all_notes": {
+    "title": "Notes de versets"
+  },
+  "notes": {
+    "title": "Ajouter une note",
+    "placeholder": "Écrivez ici...",
+    "save": "Enregistrer"
+  },
+  "contact": {
+    "title": "Des commentaires ?",
+    "version": "Version",
+    "author": "Développeur",
+    "contact_us": "Contactez-nous",
+    "desc": "Si vous avez des questions ou des suggestions, veuillez nous contacter par e-mail ou nous appeler."
+  },
+  "loading": {
+    "text": "Attendez..."
+  },
+  "nav": {
+    "search": "Rechercher",
+    "history": "Historique",
+    "bookmarks": "Signets",
+    "notes": "Mes Notes",
+    "highlights": "Surlignages",
+    "info": "Des commentaires ?",
+    "share": "Partager la Bible",
+    "settings": "Paramètres"
+  },
+  "selection": {
+    "book": "Livre",
+    "chapter": "Chapitre",
+    "verse": "Verset",
+    "close": "Fermer"
+  }
+}

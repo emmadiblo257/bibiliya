@@ -1,0 +1,114 @@
+{
+    "testaments": [
+        {
+            "name": "ISEZERANO RYA KERA",
+            "books": [
+                {
+                    "name": "ITANGURIRO",
+                    "chapters": [
+                        {
+                            "number": 1,
+                            "content": [
+                                { "type": "subheading", "text": "Imana irema ijuru n’isi n’ibirimwo vyose" },
+                                { "type": "verse", "number": 1, "text": "Ubga mbere na mbere Imana yaremye ijuru n’isi." },
+                                { "type": "verse", "number": 2, "text": "Isi yar’ ikir’ i buziba, yarik’ ubusa gusa, kand’ umwiza war’ upfutse idamba: kandi Mpwemu w’Imana yatambatamba hejuru y’amazi." },
+                                { "type": "verse", "number": 3, "text": "Imana iravuga, iti Ni habeh’ umuco: umuco ubaho." },
+                                { "type": "verse", "number": 4, "text": "Imana ibona umuco kw ari mwiza: iraheza itandukanya umuco n’umwiza." },
+                                { "type": "verse", "number": 5, "text": "Imana yita umuco umurango, umwiza iwita ijoro. Buragoroba, buraca: uwo n’umusi wa mbere." },
+                                { "type": "verse", "number": 6, "text": "Imana iravuga, iti Ni habeh’ itāzānure hagati y’amazi, ritandukanye amazi n’ayandi." },
+                                { "type": "verse", "number": 7, "text": "Imana iraritāzānura, itandukanya amazi yo musi y’itāzānure n’ayo hejuru yaryo: biba kuno." },
+                                { "type": "verse", "number": 8, "text": "Maz’ iryo tāzānure Imana iryita Ijuru. Buragoroba, buraca: uwo n’umusi ugira kabiri." },
+                                { "type": "verse", "number": 9, "text": "Imana iravuga, it’ Amazi yo musi y’ijuru n’akoranire hamwe, i musozi na ho ni haboneke: biba kuno." },
+                                { "type": "verse", "number": 10, "text": "Maz’ i musozi Imana ihita Isi, ikoraniro ry’amazi na ryo iryita Ibiyaga: Imana ibona kw ari vyiza." },
+                                { "type": "verse", "number": 11, "text": "Imana iravuga, it’ Isi n’imere ivyatsi, n’ibimera vyose vyama utubuto, n’ibiti vyama ivyamwa vyavyo ukw amoko yavyo ari, birimw’ imbuto zavyo, kw isi nyene: biba kuno." },
+                                { "type": "verse", "number": 12, "text": "Nukw isi imera ivyatsi n’ibimera vyose vyama utubuto ukw amoko yavyo ari, n’ibiti vyama ivyamwa birimw’ imbuto zavyo, ukw amoko yavyo ari: nukw Imana ibona kw ari vyiza." },
+                                { "type": "verse", "number": 13, "text": "Buragoroba, buraca: uwo n’umusi ugira gatatu." },
+                                { "type": "verse", "number": 14, "text": "Imana iravuga, iti Mw itāzānure ry’ijuru ni habeh’ ivyāka vyo gutandukanya umurango n’ijoro; bibēreho kuba ibimenyetso, no kwerekana ibihe, n’imisi n’imyaka:" },
+                                { "type": "verse", "number": 15, "text": "kandi bibe ivyāka vyo mw itāzānure ry’ ijuru vyo kwākira isi: biba kuno." },
+                                { "type": "verse", "number": 16, "text": "Imana irema ivyāka bibiri binini, icaka kinini co kuganza umurango, n’icaka gitoya co kuganza ijoro, bo n’inyenyeri." },
+                                { "type": "verse", "number": 17, "text": "Imana ibishira mw itāzānure ry’ijuru kugira ngo vyākire isi," },
+                                { "type": "verse", "number": 18, "text": "biganze umurango n’ijoro, bitandukanye umuco n’umwiza; Imana ibona kw ari vyiza." },
+                                { "type": "verse", "number": 19, "text": "Buragoroba, buraca: uwo n’umusi ugira kane." },
+                                { "type": "verse", "number": 20, "text": "Imana iravuga, iti Mu mazi ni hasegenyuke isegenya ry’ibifise ubugingo, kand’ ibiguruka ni biguruke hejuru y’isi mu kirere c’ijuru." },
+                                { "type": "verse", "number": 21, "text": "Imana irema ibifi binini‐binini, n’ibifise ubugingo vyose bigendagenda, ivyasegenyutse mu mazi, nk’ukw amoko yavyo ari, n’ibiguruka vyose bifise ivyubi, ukw amoko yavyo ari: Imana ibona kw ari vyiza." },
+                                { "type": "verse", "number": 22, "text": "Imana irbihezagira, iti Ni murondoke, mugwire, mwuzure mu mazi yo mu biyaga, n’ ibiguruka ni bigwire mw isi." },
+                                { "type": "verse", "number": 23, "text": "Buragoroba, buraca: uwo n’ umusi ugira gatanu." },
+                                { "type": "verse", "number": 24, "text": "Imana iravuga, it’Isi n’izane ibiri n’ubugingo, nk’ukw amoko yavyo ari, vy’ ibitungano n’ivyikwega hasi n’ibikōko vyo mw isi, nk’ukw amoko yavyo ari: biba kuno." },
+                                { "type": "verse", "number": 25, "text": "Nukw Imana irema ibikōko vyo mw isi, nk’ukw amoko yavyo ari, n’ibitungano, nk’ukw amoko yavyo ari, n’ivyikwega hasi vyose, nk’ukw amoko yavyo ari: Imana ibona kw ari vyiza." },
+                                { "type": "verse", "number": 26, "text": "Imana iravuga, iti Tureme umuntu mw ishusho yacu, ase natwe: aganze amafi yo mu kiyaga, n’ibiguruka mu kirere, n’ ibitungano, n’isi yose, n’ivyikwega vyose, bigenda bikwega inda hasi." },
+                                { "type": "verse", "number": 27, "text": "Nukw Imana irema umuntu mw ishusho yayo, mw ishusho y’Imana ni ho yamuremye; irema abantu bar’ uburyo bubiri." },
+                                { "type": "verse", "number": 28, "text": "Maz’ Imana irabahezagira, iti Ni murondoke, mugwire, mwuzure isi muyiganze; mugabe amafi yo mu kiyaga, n’ibiguruka mu kirere, n’ibifise ubugingo vyose bigendagenda kw isi." },
+                                { "type": "verse", "number": 29, "text": "Imana irababgira, it’Ehe ndabahaye ivyatsi vyose vyama utubuto biri kw isi yose, n’igiti cose cama ivyamwa birimw’ imbuto zavyo: bibabere ivyo kurya vyanyu." },
+                                { "type": "verse", "number": 30, "text": "Kand’ ibikōko vyose vyo kw isi, n’ibiguruka mu kirere vyose, n’ivyikwega hasi vyose birimw’ ubugingo, mbihaye ivyatsi bitotahaye vyose, ngo bibe ivyo kurya vyavyo: biba kuno." },
+                                { "type": "verse", "number": 31, "text": "Nukw Imana yihweza ivyo yaremye vyose, kandi vyari vyiza cane. Buragoroba, buraca: uwo n’umusi ugira gatandatu." }
+                            ]
+                        },
+                        {
+                            "number": 2,
+                            "content": [
+                                { "type": "subheading", "text": "Imana yeza umusi ugira indwi" },
+                                { "type": "verse", "number": 1, "text": "Ijuru n’isi binonosorwa kuremwa, bo n’ibirimwo vyose vy’ isinzi." },
+                                { "type": "verse", "number": 2, "text": "Ku musi ugira indwi Imana inonosora ibikorwa vyayo yakoze; iruhuka ku musi ugira indwi ibikorwa vyayo vyose yakoze." },
+                                { "type": "verse", "number": 3, "text": "Nukw Imana ihezagira uwo musi w’indwi, iraweza: kukw ari wo Imana yaruhukiyekw ibikorwa vyayo vyose, ivyo yaremye kandi yakoze." },
+                                { "type": "subheading", "text": "Uburyo Imana yaremye abantu ba mbere" },
+                                { "type": "verse", "number": 4, "text": "Aya ni yo mamo y’ijuru n’isi igihe vyaremwa, umusi Uhoraho Imana yaremeyekw isi n’ijuru." },
+                                { "type": "verse", "number": 5, "text": "Kandi nta gati ko ku misozi karibgabeho kw isi, nta n’akatsi ko ku misozi karibgamere, kuk’ Uhoraho Imana ataribgarekurire imvura kw isi, kandi nta muntu yariho wo kuyirima;" },
+                                { "type": "verse", "number": 6, "text": "arikw igipfungu cadūga kiva kw isi kigatosa isi yose." },
+                                { "type": "verse", "number": 7, "text": "Uhoraho Imana abumba umuntu mu mukungugu wo hasi, amuhumekera mu mazuru impwemu y’ubugingo; umuntu aca aba ūfise ubugingo." },
+                                { "type": "verse", "number": 8, "text": "Uhoraho Imana atunganya itongo muri Edeni, mu ruhande rw’i burasirazuba: arishiramw’ uwo muntu yabumvye." },
+                                { "type": "verse", "number": 9, "text": "Uhoraho Imana ahameza igiti cose c’igikundiro kibereye kuribga, ameza n’igiti c’ubugingo hagati mur’ iryo tongo, ameza n’igiti kimenyekanisha iciza n’ikibi." },
+                                { "type": "verse", "number": 10, "text": "Kand’ uruzi ruturuka muri Edeni rwo kunywesha iryo tongo; ruharenganye, rwigabanyamwo kune." },
+                                { "type": "verse", "number": 11, "text": "Urwa mbere rwitwa Pishoni: ni rwo rukīkūje igihugu cose c’i Havila, kirimw’ izahabu:" },
+                                { "type": "verse", "number": 12, "text": "kand’ izahabu yo mur’ ico gihugu ni nziza; aho ni ho haba ivyitwa budola n’utubuyenge twitwa shohamu." },
+                                { "type": "verse", "number": 13, "text": "Uruzi rwa kabiri rwitwa Gihoni: ni rwo rukīkūje igihugu cose c’i Kushi." },
+                                { "type": "verse", "number": 14, "text": "Uruzi rwa gatatu rwitwa Hidekeli, ni rwo ruca hino y’igihugu citwa Ashuri. Uruzi rwa kane rwitwa Efurate." },
+                                { "type": "verse", "number": 15, "text": "Uhoraho Imana ajana wa muntu, amushira mur’ iryo tongo ryo muri Edeni, ngw aririme, arizigame." },
+                                { "type": "verse", "number": 16, "text": "Uhoraho Imana abarira uwo muntu, at’ Igiti cose co mur’ iryo tongo ukiryek’ uk’ ugomba;" },
+                                { "type": "verse", "number": 17, "text": "arikw igiti kimenyekanisha iciza n’ikibi ntuz’ ukiryeko: kuk’ umusi wakiriyeko, uzopfa nta kabuza." },
+                                { "type": "verse", "number": 18, "text": "Uhoraho Imana aravuga, ati Si vyiza k’uyu muntu yibana wenyene; hinge ndamuronderere umufasha bikwiranye." },
+                                { "type": "verse", "number": 19, "text": "Nukw ibikōko vyose vyo ku misozi n’ibiguruka mu kirere vyose, ivyo Uhoraho Imana yari yabumvye mw ivu, abizanira uwo muntu ngw arābe ingen’ avyita amazina: kand’ uwo muntu uko yise ikiri n’ubugingo cose, rica riba izina ryaco." },
+                                { "type": "verse", "number": 20, "text": "Uwo muntu avyita amazina uhereye ku bitungano vyose no ku biguruka mu kirere no ku bikōko vyo mw ishamba vyose: ariko ntihabonekamw’ umufasha akwiranye n’umuntu." },
+                                { "type": "verse", "number": 21, "text": "Maz’ Uhoraho Imana asinziriza uwo muntu ubutikoma, arasinzira: amukūramw’ urubavu rumwe, ahōmeka inyama mu gishingo carwo." },
+                                { "type": "verse", "number": 22, "text": "Urwo rubavu Uhoraho Imana akūye mur’ uwo muntu, arukūramw’ umugore, amuzanira uwo muntu." },
+                                { "type": "verse", "number": 23, "text": "Maz’ uwo muntu aravuga, at’ Uyu n’ igufa ryo mu magufa yanje, n’akara ko mu mara yanje: azokwitwa Umugore kuko yakūwe mu Mugabo." },
+                                { "type": "verse", "number": 24, "text": "Ni co gituma umuntu azosiga se na nyina, akabana n’ umugore wiwe akaramata, bakaba umubiri umwe." }
+,
+                                { "type": "verse", "number": 25, "text": "Kand’ uwo mugabo n’umugore wiwe bompi bāgenda amēnya, ariko ntivyabatera isoni." }
+                            ]
+                        },
+                        {
+                            "number": 3,
+                            "content": [
+                                { "type": "subheading", "text": "Ukw icaha caje mw isi" },
+                                { "type": "verse", "number": 1, "text": "Inzoka yarusha ubugunge ibikōko vyose vyo mw ishamba Uhoraho Imana yaremye. Ibaza uwo mugore, iti Mbega n’ivy’ ukuri koko yukw Imana yavuze, ngo Ntimurye ku giti na kimwe co mur’ iri tongo?" },
+                                { "type": "verse", "number": 2, "text": "Umugore yishura iyo nzoka, at’ Ivyama ku biti vyo mur’ iri tongo twemererwa kubirya:" },
+                                { "type": "verse", "number": 3, "text": "arikw ivyama ku giti kiri hagati mw itongo, ni vy’Imana yatubujije, ngo ntitubiryeko, canke ngo tunabikoreko, kugira ngo twoye gupfa." },
+                                { "type": "verse", "number": 4, "text": "Iyo nzoka yishura uwo mugore, iti Haba n’intete ntimuzopfa;" },
+                                { "type": "verse", "number": 5, "text": "kukw Imana izi yuk’ umusi mwabiriyeko, amaso yanyu azokwihweza, mukamera nk’ Imana ku vyo kumenya iciza n’ikibi." },
+                                { "type": "verse", "number": 6, "text": "Uwo mugore abonye ico giti yukw ar’ ikibereye kuribga, kandi ko gihimbaye mu jisho, ar’ igiti co kwifuzwa kimenyesha ubgenge, yamura ku vyo camye, arabirya, ahako n’umugabo wiwe bāri kumwe, na we ararya." },
+                                { "type": "verse", "number": 7, "text": "Amaso yabo bompi arihweza, bamenya yuko bagenda amēnya, badandikanya ibibabi vy’imisukoni, bīronkeramw’ uducocerwa." },
+                                { "type": "verse", "number": 8, "text": "Bumva ijwi ry’Uhoraho Imana agendagenda mur’ iryo tongo mu gihe c’akayaga ko ku kagoroba: uwo muntu n’umugore wiwe binyegeza mu biti vyo mur’ iryo tongo, ng’Uhoraho Imana ntababone." },
+                                { "type": "verse", "number": 9, "text": "Uhoraho Imana ahamagara uwo muntu, aramubaza, at’ Uri hehe?" },
+                                { "type": "verse", "number": 10, "text": "Aramwishura, ati Numvise ijwi ryawe mw itongo, ndatinya, kuko ndi gusa, ndinyegeza." },
+                                { "type": "verse", "number": 11, "text": "Aramubaza, ati Ni nde yakubariye ko wambaye ubusa? Mbega wariye kuri ca giti nakubujije kuryako?" },
+                                { "type": "verse", "number": 12, "text": "Uwo muntu aramwishura, at’ Umugore wampaye ngo tubane, ni we yampaye ku vya ca giti, ndarya." },
+                                { "type": "verse", "number": 13, "text": "Uhoraho Imana abaza uwo mugore, at’ Ico wakoze ico n’igiki? Uwo mugore aramwishura, at’ Inzoka yampenze, ndabirya." },
+                                { "type": "verse", "number": 14, "text": "Uhoraho Imana abarira iyo nzoka, ati K’ukoze ivyo, ubaye ikivume mu bitungano vyose no mu bikōko vyose vyo mw ishamba: uzohora ukwega inda hasi, uzorya umukungugu imisi yose y’ukubaho kwawe." },
+                                { "type": "verse", "number": 15, "text": "Nzoshira inyankane hagati yawe n’uyu mugore, no hagati y’uruvyaro rwawe n’urwiwe: ruzogukomeretsa umutwe, nawe uzorukomeretsa igitsintsiri." },
+                                { "type": "verse", "number": 16, "text": "Kand’ abarira uwo mugore, ati Nzogwiza rwose umubabaro wawe ufise inda; uzokwama uvyara abana ubabara; kand’ umugabo wawe uzomuhoranira inyota, na we azokuganza." },
+                                { "type": "verse", "number": 17, "text": "Abarira Adamu na we, ati Ko wumviye umugore wawe, ukarya ku giti nari narakubujije, nti Ntuze ukiryeko: uzaniye ivu umuvumo; uzokwama urya ibirivamwo ubiruhiye, imisi yose y’ukubaho kwawe;" },
+                                { "type": "verse", "number": 18, "text": "rizohora rikumerera imikere n’ibitovu, arik’ uzotungwa n’ibirimano vyo mu ndimiro;" },
+                                { "type": "verse", "number": 19, "text": "kwirirwa urabira akuya ni kwo kuzoguhesha ivyo kurya uz’ urinde usubira mw ivu, kukw ari ryo wakūwemwo: ur’umukungugu, kand’ umukungugu ni wo uzosubiramwo." },
+                                { "type": "verse", "number": 20, "text": "Uwo muntu yita umugore wiwe Eva, kukw ari we nyina w’abari n’ubugingo bose." },
+                                { "type": "verse", "number": 21, "text": "Uhoraho Imana aronkera Adamu n’umugore wiwe imyambaro y’insāto, arabambika." },
+                                { "type": "verse", "number": 22, "text": "Uhoraho Imana aravuga, at’ Eh’ uyo muntu ahindutse nk’imwe muri twebge, ku vyo kumenya iciza n’ikibi: none rero yohava atuma ukuboko, akamura no ku giti c’ubugingo, akarya, akazokwamah’ ibihe bidashira." },
+                                { "type": "verse", "number": 23, "text": "Ni co catumye Uhoraho Imana amukūra mur’ iryo tongo ryo muri Edeni, ngw aje kurima ivu yakūwemwo." },
+                                { "type": "verse", "number": 24, "text": "Nuko yirukana uwo muntu; kandi mu ruhande ruhera i burasirazuba rw’iryo tongo ryo muri Edeni, ahashira Abakerubi, bo n’inkota yaka umuriro, itangatanze impande zose, ngw itangīre inzira ija kuri ca giti c’ubugingo." }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

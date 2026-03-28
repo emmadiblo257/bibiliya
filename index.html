@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="rw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibiliya Yera</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="langjs.js"></script>
+</head>
+
+<body class="light-theme">
+    <div id="app">
+        <!-- Search Modal -->
+        <div id="search-modal" class="modal">
+            <div class="modal-header">
+                <div class="search-input-container">
+                    <button id="close-search"><i class="fas fa-arrow-left"></i></button>
+                    <input type="text" id="search-input" translate-placeholder="search.placeholder">
+                </div>
+            </div>
+            <div class="modal-body">
+                <div id="search-loading" class="local-loading hidden">
+                    <div class="spinner-small"></div>
+                    <span translate="search.loading">Gutora imirongo...</span>
+                </div>
+                <div id="search-results"></div>
+            </div>
+        </div>
+
+        <!-- Settings Modal -->
+        <div id="settings-modal" class="modal">
+            <div class="modal-header">
+                <div class="modal-title-bar">
+                    <button id="close-settings"><i class="fas fa-arrow-left"></i></button>
+                    <span translate="settings.title">Gutunganaya ibirimwo</span>
+                </div>
+            </div>
+            <div class="modal-body settings-body">
+                <div class="setting-item">
+                    <label translate="settings.bible_label">Guhindura Bibiliya</label>
+                    <select id="bible-select">
+                        <option value="Kinyarwanda">Kinyarwanda (Bibiliya Yera)</option>
+                        <option value="Kirundi">Kirundi (Bibiliya sample)</option>
+                        <option value="French">Louis Segond (Coming soon)</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label translate="settings.lang_label">Ururimi rw'aplikasiyo</label>
+                    <select id="lang-select">
+                        <option value="rw">Kinyarwanda</option>
+                        <option value="rn">Kirundi</option>
+                        <option value="fr">Français</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label translate="settings.font_label">Ubunini bw'indome</label>
+                    <input type="range" id="font-range" min="14" max="36" value="20">
+                    <div id="font-demo" translate="settings.font_demo"
+                        style="margin-top: 10px; border: 1px dashed #ccc; padding: 10px; border-radius: 4px;">Uyu ni
+                        umwandiko wo kugererezako...</div>
+                </div>
+
+                <div class="setting-item">
+                    <label translate="settings.book_mode_label">Uburyo bwo guhitamo ibitabo</label>
+                    <select id="book-mode-select">
+                        <option value="grid" translate="settings.book_mode_grid">Grille (Abbreviations)</option>
+                        <option value="list" translate="settings.book_mode_list">Liste (Noms complets)</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <label translate="settings.notif_time_label">Isaha y'umurongo w'umusi</label>
+                    <input type="time" id="notif-time" value="08:00">
+                </div>
+                <!-- Other settings can be added here -->
+            </div>
+        </div>
+
+        <!-- History Modal -->
+        <div id="history-modal" class="modal">
+            <div class="modal-header">
+                <div class="modal-title-bar">
+                    <button id="close-history"><i class="fas fa-arrow-left"></i></button>
+                    <span translate="history.title">Aho uheruka gusoma</span>
+                </div>
+            </div>
+            <div id="history-list" class="modal-body"></div>
+        </div>
+
+        <!-- Bookmarks Modal -->
+        <div id="bookmarks-modal" class="modal">
+            <div class="modal-header">
+                <div class="modal-title-bar">
+                    <button id="close-bookmarks"><i class="fas fa-arrow-left"></i></button>
+                    <span translate="bookmarks.title">Indanzi z'imirongo</span>
+                </div>
+            </div>
+            <div id="bookmarks-list" class="modal-body"></div>
+        </div>
+
+        <!-- Highlights Modal -->
+        <div id="highlights-modal" class="modal">
+            <div class="modal-header">
+                <div class="modal-title-bar">
+                    <button id="close-highlights-modal"><i class="fas fa-arrow-left"></i></button>
+                    <span translate="highlights.title">Imirongo isize irangi</span>
+                </div>
+            </div>
+            <div id="highlights-list" class="modal-body"></div>
+        </div>
+
+        <!-- All Notes Modal -->
+        <div id="all-notes-modal" class="modal">
+            <div class="modal-header">
+                <div class="modal-title-bar">
+                    <button id="close-all-notes-modal"><i class="fas fa-arrow-left"></i></button>
+                    <span translate="all_notes.title">Inyigisho ku mirongo</span>
+                </div>
+            </div>
+            <div id="all-notes-list" class="modal-body"></div>
+        </div>
+        <!-- Note Entry Modal (For single verse) -->
+        <div id="notes-modal" class="modal">
+            <div class="modal-header">
+                <div class="modal-title-bar">
+                    <button id="close-notes"><i class="fas fa-arrow-left"></i></button>
+                    <span translate="notes.title">Andika inyigisho</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div id="note-ref-display" style="margin-bottom: 10px; font-weight: bold; color: var(--primary-color);">
+                </div>
+                <textarea id="note-text" translate-placeholder="notes.placeholder"></textarea>
+                <button id="save-note" class="save-btn" translate="notes.save">Bika</button>
+            </div>
+        </div>
+
+        <!-- Contact/Info Modal -->
+        <div id="contact-modal" class="modal">
+            <div class="modal-header">
+                <div class="modal-title-bar">
+                    <button id="close-contact"><i class="fas fa-arrow-left"></i></button>
+                    <span translate="contact.title">Hari ico umenyesha?</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="info-card">
+                    <h3>Bibiliya Yera </h3>
+                    <p><span translate="contact.version">Version</span> 1.0.0</p>
+                    <hr>
+                    <h4 translate="contact.author">Umutunganyi</h4>
+                    <p>Developpe par <a href="https://github.com/emmadiblo257">Emmadiblo U</a>
+                    <p>Email: emmadiblouwizeyimana@gmail.com </p>
+                    <p>Phone: +25765517561</p>
+                    <hr>
+                    <h4 translate="contact.contact_us">Twandikire</h4>
+                    <p translate="contact.desc">Niba ufite ikibazo cyangwa inyunganizi, twandikire kuri email yacu cyangwa uduhamagare.</p>
+                    Nom
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading" class="loading-overlay">
+            <div class="spinner"></div>
+            <span translate="loading.text">Rindira...</span>
+        </div>
+
+        <!-- Sidebar Navigation Drawer -->
+        <div id="drawer" class="drawer">
+            <div class="drawer-header">
+                <img src="bible_cover_premium.png" alt="Bibiliya" id="drawer-img">
+            </div>
+            <div class="drawer-content">
+                <div class="drawer-item" id="nav-search"><i class="fas fa-search"></i> <span translate="nav.search">Shakisha</span></div>
+                <div class="drawer-item" id="nav-history"><i class="fas fa-history"></i> <span translate="nav.history">Ibimaze gusomwa</span></div>
+                <div class="drawer-item" id="nav-bookmarks"><i class="fas fa-bookmark"></i> <span translate="nav.bookmarks">Indanzi z'imirongo</span></div>
+                <div class="drawer-item" id="nav-notes"><i class="fas fa-edit"></i> <span translate="nav.notes">Inyigisho zanje</span></div>
+                <div class="drawer-item" id="nav-highlights"><i class="fas fa-highlighter"></i> <span translate="nav.highlights">Imirongo isize irangi</span>
+                </div>
+                <div class="drawer-item" id="nav-info"><i class="fas fa-info-circle"></i> <span translate="nav.info">Hari ico umenyesha?</span></div>
+                <div class="drawer-item" id="nav-share"><i class="fas fa-share-alt"></i> <span translate="nav.share">Sangira Bibiliya</span></div>
+                <div class="drawer-item" id="nav-settings"><i class="fas fa-cog"></i> <span translate="nav.settings">Parametere</span></div>
+            </div>
+        </div>
+        <div id="overlay" class="overlay"></div>
+
+        <!-- Main Application Header -->
+        <header>
+            <div class="header-left">
+                <button id="menu-btn"><i class="fas fa-bars"></i></button>
+                <div class="selector-container">
+                    <span id="current-book">Itangiriro</span> <i class="fas fa-caret-down"></i>
+                </div>
+                <div class="selector-container">
+                    <span id="current-chapter">1</span> <i class="fas fa-caret-down"></i>
+                </div>
+            </div>
+            <div class="header-right">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+                <button id="font-btn"><i class="fas fa-font"></i></button>
+            </div>
+        </header>
+
+        <!-- Reading Content Area -->
+        <main id="bible-content">
+            <h1 id="book-title">ITANGIRIRO</h1>
+            <div id="chapter-body">
+                <!-- Scripture text will be injected here -->
+            </div>
+        </main>
+
+        <!-- Book Selection Modal (Grid) -->
+        <div id="selection-modal" class="modal">
+            <div class="modal-header">
+                <div class="tabs">
+                    <div class="tab active" data-tab="books" translate="selection.book">Igitabu</div>
+                    <div class="tab" data-tab="chapters" translate="selection.chapter">Igice</div>
+                    <div class="tab" data-tab="verses" translate="selection.verse">Umurongo</div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div id="book-grid-container" class="tab-content active-content">
+                    <div id="book-grid"></div>
+                </div>
+                <div id="chapter-grid-container" class="tab-content">
+                    <div id="chapter-grid" class="grid"></div>
+                </div>
+                <div id="verse-grid-container" class="tab-content">
+                    <div id="verse-grid" class="grid"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="close-modal" translate="selection.close">Funga</button>
+            </div>
+        </div>
+
+        <!-- Bottom Actions Bar -->
+        <div id="bottom-bar" class="bottom-bar hidden">
+            <button id="btn-highlight" class="action-btn"><i class="fas fa-highlighter"></i></button>
+            <button id="btn-note" class="action-btn"><i class="fas fa-pencil-alt"></i></button>
+            <button id="btn-bookmark" class="action-btn"><i class="far fa-bookmark"></i></button>
+            <button id="btn-share" class="action-btn"><i class="fas fa-share-alt"></i></button>
+
+            <div id="highlight-colors" class="hidden">
+                <div class="color-dot" style="background: #FFF176;" data-color="#FFF176"></div>
+                <div class="color-dot" style="background: #FFAB91;" data-color="#FFAB91"></div>
+                <div class="color-dot" style="background: #C5E1A5;" data-color="#C5E1A5"></div>
+                <div class="color-dot" style="background: #80CBC4;" data-color="#80CBC4"></div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
