@@ -12,24 +12,29 @@ let appSettings = {
     bible: 'Kinyarwanda',
     lang: 'rw',
     fontSize: 20,
-    theme: 'light-theme',
-    layout: 'paragraph',
+    theme: 'light',
+    layout: 'para',
     bookSelectMode: 'grid',
-    notifTime: '08:00'
+    notifTime: '08:00',
+    notifEnabled: false
 };
 
 const bookAbbreviations = {
-    "ITANGIRIRO": "Ita", "KUVA": "Kuv", "ABALEWI": "Lew", "KUBARA": "Guh", "GUTEGEKA KWA KABIRI": "Gus", "YOSUWA": "Yos",
-    "ABACAMANZA": "Abac", "RUS I": "Rus", "1 NGO MA": "1Ngo", "2 NGO MA": "2Ngo", "EZ IRA": "Ezr", "NEHEMIYA": "Neh",
-    "ES ITERI": "Est", "YOBU": "Yob", "ZABURI": "Zab", "IMIGANI": "Imig", "UMUBWIRIZA": "Umu", "INDIRIMBO ZA S ALO MO": "Ind",
-    "Y ES AYA": "Yes", "Y EREMIYA": "Yer", "AMAGANYA YA Y EREMIYA": "Int", "EZ EKIY ELI": "Ezk", "DANIY ELI": "Dan",
-    "HOS EYA": "Hos", "YOWELI": "Yow", "AMOS I": "Am", "OBADIYA": "Ob", "YONA": "Yon", "MIKA": "Mik", "NAHUMU": "Nah",
-    "HABAKUKI": "Hab", "Z EFANIYA": "Zef", "HAGAY I": "Hag", "Z EKARIYA": "Zek", "MALAKI": "Mal",
-    "MATAYO": "Mat", "MARIKO": "Mrk", "LUKA": "Luk", "YOHANA": "Yoh", "IBYAKOZWE N’INTUMWA": "Ivya", "ABARO MA": "Rom",
-    "1 ABAKORINTO": "1Kor", "2 ABAKORINTO": "2Kor", "ABAGALATIYA": "Gal", "ABEF ESO": "Ef", "ABAF ILIPI": "Flp", "ABAKOLOS AY I": "Kol",
-    "1 ABATES ALONIKE": "1Tes", "2 ABATES ALONIKE": "2Tes", "1 TIMOTEYO": "1Tim", "2 TIMOTEYO": "2Tim", "TITO": "Tit", "F ILEMONI": "Flm",
-    "ABAHEBURAYO": "Heb", "YAKOBO": "Yak", "1 PETERO": "1Ptr", "2 PETERO": "2Ptr", "1 YOHANA": "1Yoh", "2 YOHANA": "2Yoh", "3 YOHANA": "3Yoh",
-    "YUDA": "Yud", "IBYAHISHUWE": "Ibya"
+    "ITANGIRIRO": "Ita", "KUVA": "Kuv", "ABALEWI": "Lew", "KUBARA": "Kub", "GUTEGEKA KWA KABIRI": "Gut", 
+    "YOSUWA": "Yos", "ABACAMANZA": "Abac", "RUTI": "Rut", "1 SAMWELI": "1Sam", "2 SAMWELI": "2Sam", 
+    "1 ABAMI": "1Abm", "2 ABAMI": "2Abm", "1 NGOMA": "1Ngo", "2 NGOMA": "2Ngo", "EZIRA": "Ezr", 
+    "NEHEMIYA": "Neh", "ESITERI": "Est", "YOBU": "Yob", "ZABURI": "Zab", "IMIGANI": "Imig", 
+    "UMUBWIRIZA": "Umu", "INDIRIMBO ZA SALOMO": "Ind", "YESAYA": "Yes", "YEREMIYA": "Yer", 
+    "AMAGANYA YA YEREMIYA": "Ama", "EZEKIYELI": "Ezk", "DANIYELI": "Dan", "HOSEYA": "Hos", 
+    "YOWELI": "Yow", "AMOSI": "Amo", "OBADIYA": "Oba", "YONA": "Yon", "MIKA": "Mik", 
+    "NAHUMU": "Nah", "HABAKUKI": "Hab", "ZEFANIYA": "Zef", "HAGAYI": "Hag", "ZEKARIYA": "Zek", 
+    "MALAKI": "Mal", "MATAYO": "Mat", "MARIKO": "Mrk", "LUKA": "Luk", "YOHANA": "Yoh", 
+    "IBYAKOZWE N’INTUMWA": "Ibya", "ABAROMA": "Rom", "1 ABAKORINTO": "1Kor", "2 ABAKORINTO": "2Kor", 
+    "ABAGALATIYA": "Gal", "ABEFESO": "Ef", "ABAFILIPI": "Flp", "ABAKOLOSAYI": "Kol", 
+    "1 ABATESALONIKE": "1Tes", "2 ABATESALONIKE": "2Tes", "1 TIMOTEYO": "1Tim", "2 TIMOTEYO": "2Tim", 
+    "TITO": "Tit", "FILEMONI": "Flm", "ABAHEBURAYO": "Heb", "YAKOBO": "Yak", "1 PETERO": "1Ptr", 
+    "2 PETERO": "2Ptr", "1 YOHANA": "1Yoh", "2 YOHANA": "2Yoh", "3 YOHANA": "3Yoh", "YUDA": "Yud", 
+    "IBYAHISHUWE": "Ibyh"
 };
 
 // DOM Elements
@@ -61,6 +66,8 @@ async function init() {
 
     try {
         await loadBible(appSettings.bible);
+        applyTheme();
+        applyLayout();
         setupInteractions();
     } catch (err) {
         console.error("Init failed:", err);
@@ -71,11 +78,17 @@ function loadSettings() {
     const saved = localStorage.getItem('appSettings');
     if (saved) {
         appSettings = { ...appSettings, ...JSON.parse(saved) };
+    } else {
+        // Auto-detect browser language if first time
+        const browserLang = navigator.language.split('-')[0];
+        const supported = ['rw', 'rn', 'en', 'fr'];
+        if (supported.includes(browserLang)) {
+            appSettings.lang = browserLang;
+        }
     }
-    // Apply theme
-    document.body.className = appSettings.theme;
     
-    // Set UI values
+    applyTheme();
+    
     const bibleSelect = document.getElementById('bible-select');
     if (bibleSelect) bibleSelect.value = appSettings.bible;
     
@@ -86,7 +99,7 @@ function loadSettings() {
     if (fontRange) fontRange.value = appSettings.fontSize;
     
     const themeSelect = document.getElementById('theme-select');
-    if (themeSelect) themeSelect.value = appSettings.theme.replace('-theme', '');
+    if (themeSelect) themeSelect.value = appSettings.theme;
     
     const layoutSelect = document.getElementById('layout-select');
     if (layoutSelect) layoutSelect.value = appSettings.layout;
@@ -94,9 +107,13 @@ function loadSettings() {
     const bookModeSelect = document.getElementById('book-mode-select');
     if (bookModeSelect) bookModeSelect.value = appSettings.bookSelectMode;
 
+    const notifEnabledInput = document.getElementById('notif-enabled');
+    if (notifEnabledInput) notifEnabledInput.checked = appSettings.notifEnabled;
+
     const notifTimeInput = document.getElementById('notif-time');
     if (notifTimeInput) notifTimeInput.value = appSettings.notifTime;
 
+    document.getElementById('notif-time-container')?.classList.toggle('hidden', !appSettings.notifEnabled);
     updateFontDemo();
 }
 
@@ -106,8 +123,25 @@ function saveSettings() {
 
 async function loadBible(version) {
     toggleLoading(true);
+    let path = '';
+    if (version === 'Kinyarwanda') path = 'Kinyarwanda/bibiliya.json';
+    else if (version === 'English') path = 'English/bibiliya.json';
+    else if (version === 'Swahili') path = 'Swahili/bibiliya.json';
+    else if (version.startsWith('French_')) {
+        const mapping = {
+            'French_S21': 'French Bible Segond 21 (S21).json',
+            'French_LSG': 'French Louis Segond (1910).json',
+            'French_NBS': 'French Nouvelle Bible Segond.json',
+            'French_Semeur': 'French Semeur.json',
+            'French_TOB': 'French Traduction Œcuménique de la Bible.json'
+        };
+        path = 'French/' + mapping[version];
+    } else {
+        path = `${version}/bibiliya.json`;
+    }
+
     try {
-        const response = await fetch(`${version}/bibiliya.json`);
+        const response = await fetch(path);
         if (!response.ok) throw new Error(`Failed to load ${version} Bible`);
         bibleData = await response.json();
         
@@ -125,7 +159,7 @@ async function loadBible(version) {
         buildBookGrid();
     } catch (e) {
         console.error("Erreur lors du chargement de la Bible", e);
-        alert(`Ntibishoboka gushika kuri Bibiliya ya ${version}.`);
+        alert(lang.get('selection.error_access', {version: version}));
     } finally {
         toggleLoading(false);
     }
@@ -154,8 +188,8 @@ function setupInteractions() {
     };
 
     setE('toggle-theme-drawer', 'onclick', () => {
-        appSettings.theme = document.body.classList.contains('dark-theme') ? 'light-theme' : 'dark-theme';
-        document.body.className = appSettings.theme;
+        appSettings.theme = appSettings.theme === 'dark' ? 'light' : 'dark';
+        applyTheme();
         saveSettings();
         closeDrawer();
     });
@@ -201,21 +235,52 @@ function setupInteractions() {
         buildBookGrid();
     });
 
+    setE('theme-select', 'onchange', (e) => {
+        appSettings.theme = e.target.value;
+        applyTheme();
+        saveSettings();
+    });
+
+    setE('layout-select', 'onchange', (e) => {
+        appSettings.layout = e.target.value;
+        applyLayout();
+        saveSettings();
+    });
+
+    setE('notif-enabled', 'onchange', async (e) => {
+        appSettings.notifEnabled = e.target.checked;
+        if (appSettings.notifEnabled) {
+            if (Notification.permission === 'default') {
+                const permission = await Notification.requestPermission();
+                if (permission !== 'granted') {
+                    alert(lang.get('settings.notif_permission_denied'));
+                    e.target.checked = false;
+                    appSettings.notifEnabled = false;
+                }
+            } else if (Notification.permission === 'denied') {
+                alert(lang.get('settings.notif_permission_denied'));
+                e.target.checked = false;
+                appSettings.notifEnabled = false;
+            }
+        }
+        document.getElementById('notif-time-container')?.classList.toggle('hidden', !appSettings.notifEnabled);
+        saveSettings();
+    });
+
     setE('notif-time', 'onchange', (e) => {
         appSettings.notifTime = e.target.value;
         saveSettings();
     });
     
     setE('theme-select', 'onchange', (e) => {
-        appSettings.theme = e.target.value + '-theme';
-        document.body.className = appSettings.theme;
+        appSettings.theme = e.target.value;
+        applyTheme();
         saveSettings();
     });
     
     setE('layout-select', 'onchange', (e) => {
         appSettings.layout = e.target.value;
-        if (appSettings.layout === 'list') chapterBody?.classList.add('layout-list');
-        else chapterBody?.classList.remove('layout-list');
+        applyLayout();
         saveSettings();
     });
 
@@ -320,30 +385,33 @@ function handleSearch(query) {
     setTimeout(() => {
         let count = 0;
         try {
-            if (bibleData && bibleData.allBooks) {
-                for (let bIdx = 0; bIdx < bibleData.allBooks.length; bIdx++) {
+            if (bibleData && bibleData.testaments) {
+                for (const testament of bibleData.testaments) {
                     if (count >= 100) break;
-                    const book = bibleData.allBooks[bIdx];
-                    for (let cIdx = 0; cIdx < book.chapters.length; cIdx++) {
+                    for (const book of testament.books) {
                         if (count >= 100) break;
-                        const chap = book.chapters[cIdx];
-                        if (!chap.content) continue;
-                        for (const item of chap.content) {
-                            if (item && item.type === 'verse' && item.text.toLowerCase().includes(q)) {
-                                const div = document.createElement('div');
-                                div.className = 'search-result-item';
-                                div.innerHTML = `
-                                    <div class="result-ref">${book.name} ${chap.number}:${item.number}</div>
-                                    <div class="result-text">${item.text}</div>
-                                `;
-                                div.onclick = () => {
-                                    currentVerseNumber = item.number;
-                                    loadContent(bIdx, cIdx);
-                                    document.getElementById('search-modal')?.classList.remove('show');
-                                };
-                                resultsContainer.appendChild(div);
-                                count++;
+                        for (let cIdx = 0; cIdx < book.chapters.length; cIdx++) {
+                            const chap = book.chapters[cIdx];
+                            if (count >= 100) break;
+                            if (!chap.content) continue;
+                            for (const item of chap.content) {
                                 if (count >= 100) break;
+                                if (item && item.type === 'verse' && item.text.toLowerCase().includes(q)) {
+                                    const div = document.createElement('div');
+                                    div.className = 'search-result-item';
+                                    const fullBIdx = bibleData.allBooks.findIndex(b => b.name === book.name);
+                                    div.innerHTML = `
+                                        <div class="result-ref">${book.name} ${chap.number}:${item.number}</div>
+                                        <div class="result-text">${item.text}</div>
+                                    `;
+                                    div.onclick = () => {
+                                        currentVerseNumber = item.number;
+                                        loadContent(fullBIdx, cIdx);
+                                        document.getElementById('search-modal')?.classList.remove('show');
+                                    };
+                                    resultsContainer.appendChild(div);
+                                    count++;
+                                }
                             }
                         }
                     }
@@ -370,6 +438,38 @@ function showModalTab(tabId) {
     document.querySelector(`[data-tab="${tabId}"]`)?.classList.add('active');
     document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active-content'));
     document.getElementById(`${tabId.replace('s', '')}-grid-container`)?.classList.add('active-content');
+    
+    // Update modal title
+    const header = selectionModal.querySelector('.modal-header');
+    let title = lang.get('selection.book');
+    if (tabId === 'chapters') title = bibleData.allBooks[currentBookIndex].name;
+    if (tabId === 'verses') title = `${bibleData.allBooks[currentBookIndex].name} ${currentChapterIndex + 1}`;
+    
+    // Ensure we have a title bar if not present
+    let titleBar = header.querySelector('.modal-title-bar');
+    if (!titleBar) {
+        titleBar = document.createElement('div');
+        titleBar.className = 'modal-title-bar';
+        header.prepend(titleBar);
+    }
+    
+    titleBar.innerHTML = `
+        <button id="modal-back-btn" class="action-btn" style="visibility: ${tabId === 'books' ? 'hidden' : 'visible'}">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <span style="flex: 1; text-align: center; font-weight: bold;">${title}</span>
+        <button id="modal-close-btn" class="action-btn"><i class="fas fa-times"></i></button>
+    `;
+    
+    document.getElementById('modal-back-btn').onclick = (e) => {
+        e.stopPropagation();
+        if (tabId === 'chapters') showModalTab('books');
+        if (tabId === 'verses') showModalTab('chapters');
+    };
+    document.getElementById('modal-close-btn').onclick = (e) => {
+        e.stopPropagation();
+        selectionModal.classList.remove('show');
+    };
 }
 
 function loadContent(bookIdx, chapIdx) {
@@ -390,8 +490,7 @@ function loadContent(bookIdx, chapIdx) {
     if (chapterBody) {
         chapterBody.innerHTML = '';
         chapterBody.style.fontSize = appSettings.fontSize + 'px';
-        if (appSettings.layout === 'list') chapterBody.classList.add('layout-list');
-        else chapterBody.classList.remove('layout-list');
+        applyLayout();
 
         let currentP = document.createElement('p');
         let isFirstVerse = true;
@@ -501,7 +600,7 @@ function showHistory() {
     list.innerHTML = '';
     const history = JSON.parse(localStorage.getItem('history') || '[]');
     if (history.length === 0) {
-        list.innerHTML = '<div style="padding: 20px; text-align: center;">Nta mateka yabonetse.</div>';
+        list.innerHTML = `<div style="padding: 20px; text-align: center;">${lang.get('history.empty')}</div>`;
     } else {
         history.forEach(h => {
             const div = document.createElement('div');
@@ -525,7 +624,7 @@ function showAllNotes() {
     const notes = JSON.parse(localStorage.getItem('notes') || '{}');
     const refs = Object.keys(notes);
     if (refs.length === 0) {
-        list.innerHTML = '<div style="padding: 20px; text-align: center;">Nta nyigisho n’imwe urandika.</div>';
+        list.innerHTML = `<div style="padding: 20px; text-align: center;">${lang.get('all_notes.empty')}</div>`;
     } else {
         refs.forEach(ref => {
             const div = document.createElement('div');
@@ -549,7 +648,7 @@ function showHighlights() {
     const highlights = JSON.parse(localStorage.getItem('highlights') || '{}');
     const refs = Object.keys(highlights);
     if (refs.length === 0) {
-        list.innerHTML = '<div style="padding: 20px; text-align: center;">Nta mirongo isize irangi yabonetse.</div>';
+        list.innerHTML = `<div style="padding: 20px; text-align: center;">${lang.get('highlights.empty')}</div>`;
     } else {
         refs.forEach(ref => {
             const text = getVerseTextByRef(ref);
@@ -606,7 +705,7 @@ function showBookmarks() {
     list.innerHTML = '';
     const bms = JSON.parse(localStorage.getItem('bookmarks') || '[]');
     if (bms.length === 0) {
-        list.innerHTML = '<div style="padding: 20px; text-align: center;">Nta ndanzi y’umurongo urabika.</div>';
+        list.innerHTML = `<div style="padding: 20px; text-align: center;">${lang.get('bookmarks.empty')}</div>`;
     } else {
         bms.forEach(b => {
             const div = document.createElement('div');
@@ -690,9 +789,14 @@ function saveNote() {
 
 function normalizeBookName(name) {
     if (!name) return '';
-    if (name === 'GUTEGEKA KWA KABIRI') return 'Gutegeka';
-    if (name === 'INDIRIMBO ZA S ALO MO') return 'Indirimbo';
-    return name.charAt(0) + name.slice(1).toLowerCase();
+    const n = name.trim().toUpperCase();
+    if (n === 'GUTEGEKA KWA KABIRI') return 'Gutegeka';
+    if (n === 'INDIRIMBO ZA SALOMO') return 'Indirimbo';
+    if (n === 'AMAGANYA YA YEREMIYA') return 'Amaganya';
+    if (n === 'IBYAKOZWE N’INTUMWA') return 'Ibyakozwe';
+    
+    // Capitalize first letter of each word? Or just overall?
+    return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
 }
 
 function buildBookGrid() {
@@ -712,8 +816,7 @@ function buildBookGrid() {
         if (!t) return;
         const h = document.createElement('div');
         h.className = 'grid-section';
-        const tName = t.name || '';
-        h.innerText = tName.includes('RISHYA') || tName.includes('RISHA') ? 'ISEZERANO RISHA' : 'ISEZERANO RYA KERA';
+        h.innerText = t.name || '';
         bookGrid.appendChild(h);
         
         t.books && t.books.forEach(b => {
@@ -738,57 +841,65 @@ function selectBook(book) {
     const idx = bibleData.allBooks.findIndex(b => b.name === book.name);
     if (idx === -1) return;
     currentBookIndex = idx;
+    
+    renderChapterGrid(book);
     showModalTab('chapters');
-    if (!chapterGrid) return;
-    chapterGrid.innerHTML = '';
+}
+
+function renderChapterGrid(book) {
+    const chaptersGrid = document.getElementById('chapter-grid');
+    if (!chaptersGrid) return;
+    chaptersGrid.innerHTML = '';
     book.chapters && book.chapters.forEach((chap, cIdx) => {
         if (!chap) return;
         const item = document.createElement('div');
         item.className = 'chapter-item';
         item.innerText = chap.number || (cIdx + 1);
-        item.onclick = () => selectChapter(idx, cIdx);
-        chapterGrid.appendChild(item);
+        item.onclick = () => selectChapter(cIdx);
+        chaptersGrid.appendChild(item);
     });
 }
 
-function selectChapter(bookIdx, chapIdx) {
+function selectChapter(chapIdx) {
     if (!bibleData) return;
-    currentBookIndex = bookIdx;
     currentChapterIndex = chapIdx;
-    const book = bibleData.allBooks[bookIdx];
-    const chapter = book.chapters[chapIdx];
-    
-    // Switch to verses tab BEFORE populating
-    showModalTab('verses');
+    loadContent(currentBookIndex, chapIdx);
+    closeModal();
+}
 
+function renderVerseGrid() {
     const vGrid = document.getElementById('verse-grid');
     if (!vGrid) return;
     vGrid.innerHTML = '';
+    const book = bibleData.allBooks[currentBookIndex];
+    const chapter = book.chapters[currentChapterIndex];
     
-    // Show local loading if grid is large
-    const resultsContainer = document.getElementById('search-results');
-    // Using a simple flag for verse grid loading or re-using the spinner logic
-    vGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 20px;"><div class="spinner-small"></div></div>';
-    setTimeout(() => {
-        let vCount = 0;
-        chapter.content && chapter.content.forEach(item => {
-            if (item && item.type === 'verse') vCount++;
+    if (chapter && chapter.content) {
+        chapter.content.forEach((item) => {
+            if (item && item.type === 'verse') {
+                const el = document.createElement('div');
+                el.className = 'verse-item';
+                el.innerText = item.number;
+                el.onclick = () => {
+                    currentVerseNumber = item.number;
+                    loadContent(currentBookIndex, currentChapterIndex);
+                    closeModal();
+                };
+                vGrid.appendChild(el);
+            }
         });
+    }
+}
 
-        if (vCount === 0) vGrid.innerHTML = '<div style="grid-column: 1/-1; padding: 20px; text-align: center;">Nta mirongo yabonetse.</div>';
-        for (let i = 1; i <= vCount; i++) {
-            const item = document.createElement('div');
-            item.className = 'verse-item';
-            item.innerText = i;
-            item.onclick = () => {
-                currentVerseNumber = i;
-                loadContent(bookIdx, chapIdx);
-                closeModal();
-            };
-            vGrid.appendChild(item);
-        }
-        toggleLoading(false);
-    }, 50);
+function applyTheme() {
+    document.body.className = appSettings.theme === 'dark' ? 'dark-theme' : 'light-theme';
+}
+
+function applyLayout() {
+    if (chapterBody) {
+        chapterBody.classList.remove('layout-para', 'layout-line');
+        chapterBody.classList.add(`layout-${appSettings.layout}`);
+    }
 }
 
 function closeModal() {
@@ -798,7 +909,19 @@ function closeModal() {
 
 if (menuBtn) menuBtn.onclick = () => { drawer?.classList.add('open'); overlay?.classList.add('show'); };
 if (overlay) overlay.onclick = closeDrawer;
-document.querySelectorAll('.selector-container').forEach(el => el.onclick = () => selectionModal?.classList.add('show'));
+
+const bookLabel = document.getElementById('current-book');
+if (bookLabel) bookLabel.onclick = () => {
+    showModalTab('books');
+    selectionModal?.classList.add('show');
+};
+
+const chapLabel = document.getElementById('current-chapter');
+if (chapLabel) chapLabel.onclick = () => {
+    selectBook(bibleData.allBooks[currentBookIndex]);
+    selectionModal?.classList.add('show');
+};
+
 const closeM = document.getElementById('close-modal');
 if (closeM) closeM.onclick = closeModal;
 
@@ -814,4 +937,48 @@ function shareVerse() {
     }
 }
 
+function scheduleDailyNotification() {
+    if (!appSettings.notifEnabled) return;
+    if (Notification.permission !== 'granted') return;
+
+    const [hrs, mins] = appSettings.notifTime.split(':').map(Number);
+    const now = new Date();
+    let scheduled = new Date();
+    scheduled.setHours(hrs, mins, 0, 0);
+    
+    if (scheduled <= now) {
+        scheduled.setDate(scheduled.getDate() + 1);
+    }
+    
+    const diff = scheduled.getTime() - now.getTime();
+    console.log(`Notification scheduled in ${Math.round(diff/1000/60)} minutes`);
+    
+    setTimeout(() => {
+        showRandomVerseNotification();
+        scheduleDailyNotification();
+    }, diff);
+}
+
+function showRandomVerseNotification() {
+    if (!bibleData) return;
+    const all = bibleData.allBooks;
+    const book = all[Math.floor(Math.random() * all.length)];
+    const chap = book.chapters[Math.floor(Math.random() * book.chapters.length)];
+    const verses = chap.content.filter(v => v.type === 'verse');
+    const verse = verses[Math.floor(Math.random() * verses.length)];
+
+    if (Notification.permission === 'granted') {
+        new Notification("Umurongo w'uyu munsi", {
+            body: `${book.name} ${chap.number}:${verse.number} - ${verse.text}`,
+            icon: 'bible_cover_premium.png'
+        });
+    }
+}
+
 init();
+window.addEventListener('online', () => {
+    console.log('Online! Updating cache...');
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.ready.then(reg => reg.update());
+    }
+});

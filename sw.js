@@ -4,9 +4,7 @@ const ASSETS = [
   './index.html',
   './style.css',
   './app.js',
-  './bible_cover_premium.png',
-  './Kinyarwanda/bibiliya.json',
-  './Kirundi/bibiliya.json'
+  './bible_cover_premium.png'
 ];
 
 self.addEventListener('install', (event) => {
@@ -17,6 +15,32 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request).then((response) => response || fetch(event.request))
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.match(event.request).then((cachedResponse) => {
+        const fetchedResponse = fetch(event.request).then((networkResponse) => {
+          if (networkResponse.status === 200) {
+            cache.put(event.request, networkResponse.clone());
+          }
+          return networkResponse;
+        }).catch(() => {
+            // Offline fallback if needed
+        });
+        return cachedResponse || fetchedResponse;
+      });
+    })
   );
+});
+
+self.addEventListener('activate', (event) => {
+    event.waitUntil(
+        caches.keys().then((cacheNames) => {
+            return Promise.all(
+                cacheNames.map((cacheName) => {
+                    if (cacheName !== CACHE_NAME) {
+                        return caches.delete(cacheName);
+                    }
+                })
+            ).then(() => self.clients.claim());
+        })
+    );
 });

@@ -38,7 +38,7 @@ class LangJS {
         const detectedLang = this.detectLanguage();
         await this.setLanguage(detectedLang);
         this.observeDOMChanges();
-        this.log('LangJS initialized with language:', this.currentLanguage);
+        this.log(`LangJS initialized with language: ${this.currentLanguage}`);
     }
 
     /**

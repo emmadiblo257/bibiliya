@@ -5,30 +5,45 @@
   "search": {
     "placeholder": "Shakisha ijambo...",
     "loading": "Gutora imirongo...",
-    "empty": "Nta kintu yabonetse ku bivanye n’iryo jambo."
+    "empty": "Nta kintu cyabonetse kijanye n’iryo jambo."
   },
   "settings": {
-    "title": "Gutunganaya ibirimwo",
+    "title": "Gutunganaya ibirimo",
     "bible_label": "Guhindura Bibiliya",
     "lang_label": "Ururimi rw'aplikasiyo",
     "font_label": "Ubunini bw'indome",
     "font_demo": "Uyu ni umwandiko wo kugererezako...",
+    "theme_label": "Uburyo bugaragara",
+    "theme_light": "Urumuri",
+    "theme_dark": "Umwijima",
+    "layout_label": "Imiterere y'imirongo",
+    "layout_para": "Paragurafu (Flow)",
+    "layout_line": "Umurongo ku murongo",
     "book_mode_label": "Uburyo bwo guhitamo ibitabo",
     "book_mode_grid": "Grille (Abbreviations)",
     "book_mode_list": "Liste (Noms complets)",
-    "notif_time_label": "Isaha y'umurongo w'umusi"
+    "notif_enable_label": "Ishaka umurongo w'umusi",
+    "notif_time_label": "Isaha y'umurongo w'umusi",
+    "placeholder": "Shakisha ijambo...",
+    "loading": "Gutora imirongo...",
+    "empty": "Nta kintu cyabonetse kijanye n’iryo jambo.",
+    "notif_permission_denied": "Ntabwo dushoboye kwohereza ubutumwa. Tafadhali onyesha ruhusa."
   },
   "history": {
-    "title": "Aho uheruka gusoma"
+    "title": "Aho uheruka gusoma",
+    "empty": "Nta mateka yabonetse."
   },
   "bookmarks": {
-    "title": "Indanzi z'imirongo"
+    "title": "Indanzi z'imirongo",
+    "empty": "Nta ndanzi y’umurongo urabika."
   },
   "highlights": {
-    "title": "Imirongo isize irangi"
+    "title": "Imirongo isize irangi",
+    "empty": "Nta mirongo isize irangi yabonetse."
   },
   "all_notes": {
-    "title": "Inyigisho ku mirongo"
+    "title": "Inyigisho ku mirongo",
+    "empty": "Nta nyigisho n’imwe urandika."
   },
   "notes": {
     "title": "Andika inyigisho",
@@ -49,16 +64,17 @@
     "search": "Shakisha",
     "history": "Ibimaze gusomwa",
     "bookmarks": "Indanzi z'imirongo",
-    "notes": "Inyigisho zanje",
+    "notes": "Inyigisho zanjye",
     "highlights": "Imirongo isize irangi",
     "info": "Hari ico umenyesha?",
     "share": "Sangira Bibiliya",
-    "settings": "Parametere"
+    "settings": "Amagenamiterere"
   },
   "selection": {
     "book": "Igitabu",
     "chapter": "Igice",
     "verse": "Umurongo",
-    "close": "Funga"
+    "close": "Funga",
+    "error_access": "Ntibishoboka gushika kuri Bibiliya ya {version}."
   }
 }

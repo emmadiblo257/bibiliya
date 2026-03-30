@@ -41,11 +41,30 @@
             </div>
             <div class="modal-body settings-body">
                 <div class="setting-item">
+                    <label translate="settings.theme_label">Uburyo bugaragara</label>
+                    <select id="theme-select">
+                        <option value="light" translate="settings.theme_light">Urumuri</option>
+                        <option value="dark" translate="settings.theme_dark">Umwijima</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label translate="settings.layout_label">Imiterere y'imirongo</label>
+                    <select id="layout-select">
+                        <option value="para" translate="settings.layout_para">Paragurafu (Flow)</option>
+                        <option value="line" translate="settings.layout_line">Umurongo ku murongo</option>
+                    </select>
+                </div>
+                <div class="setting-item">
                     <label translate="settings.bible_label">Guhindura Bibiliya</label>
                     <select id="bible-select">
-                        <option value="Kinyarwanda">Kinyarwanda (Bibiliya Yera)</option>
-                        <option value="Kirundi">Kirundi (Bibiliya sample)</option>
-                        <option value="French">Louis Segond (Coming soon)</option>
+                        <option value="Kinyarwanda">Bibiliya Yera (Kinyarwanda)</option>
+                        <option value="French_S21">Bible Segond 21 (Français)</option>
+                        <option value="French_LSG">Louis Segond 1910 (Français)</option>
+                        <option value="French_NBS">Nouvelle Bible Segond (Français)</option>
+                        <option value="French_Semeur">Bible du Semeur (Français)</option>
+                        <option value="French_TOB">Traduction Œcuménique (Français)</option>
+                        <option value="English">King James Version (English)</option>
+                        <option value="Swahili">Biblia Takatifu (Swahili)</option>
                     </select>
                 </div>
                 <div class="setting-item">
@@ -53,6 +72,7 @@
                     <select id="lang-select">
                         <option value="rw">Kinyarwanda</option>
                         <option value="rn">Kirundi</option>
+                        <option value="en">English</option>
                         <option value="fr">Français</option>
                     </select>
                 </div>
@@ -73,6 +93,12 @@
                 </div>
 
                 <div class="setting-item">
+                    <label>
+                        <input type="checkbox" id="notif-enabled"> 
+                        <span translate="settings.notif_enable_label">Ishaka umurongo w'umusi</span>
+                    </label>
+                </div>
+                <div id="notif-time-container" class="setting-item hidden">
                     <label translate="settings.notif_time_label">Isaha y'umurongo w'umusi</label>
                     <input type="time" id="notif-time" value="08:00">
                 </div>
@@ -153,7 +179,7 @@
                     <p><span translate="contact.version">Version</span> 1.0.0</p>
                     <hr>
                     <h4 translate="contact.author">Umutunganyi</h4>
-                    <p>Developpe par <a href="https://github.com/emmadiblo257">Emmadiblo U</a>
+                    <p>Developpe par <a href="https://github.com/emmadiblo257">Emmadiblo </a>
                     <p>Email: emmadiblouwizeyimana@gmail.com </p>
                     <p>Phone: +25765517561</p>
                     <hr>
@@ -215,7 +241,7 @@
         </main>
 
         <!-- Book Selection Modal (Grid) -->
-        <div id="selection-modal" class="modal">
+        <div id="selection-modal" class="modal modal-partial">
             <div class="modal-header">
                 <div class="tabs">
                     <div class="tab active" data-tab="books" translate="selection.book">Igitabu</div>

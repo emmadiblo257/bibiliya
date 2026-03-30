@@ -13,22 +13,34 @@
     "lang_label": "App Language",
     "font_label": "Font Size",
     "font_demo": "This is a demo text...",
+    "theme_label": "App Theme",
+    "theme_light": "Light Mode",
+    "theme_dark": "Dark Mode",
+    "layout_label": "Verse Layout",
+    "layout_para": "Paragraph (Flow)",
+    "layout_line": "Line by Line",
     "book_mode_label": "Book Selection Mode",
     "book_mode_grid": "Grid (Abbreviations)",
     "book_mode_list": "List (Full Names)",
-    "notif_time_label": "Daily Verse Time"
+    "notif_enable_label": "Enable Daily Verse",
+    "notif_time_label": "Daily Verse Time",
+    "notif_permission_denied": "Notifications are disabled. Please enable them in browser settings."
   },
   "history": {
-    "title": "Recent Reading"
+    "title": "Recent Reading",
+    "empty": "No recent history found."
   },
   "bookmarks": {
-    "title": "Bookmarks"
+    "title": "Bookmarks",
+    "empty": "No bookmarks found."
   },
   "highlights": {
-    "title": "Highlights"
+    "title": "Highlights",
+    "empty": "No highlighted verses found."
   },
   "all_notes": {
-    "title": "Verse Notes"
+    "title": "Verse Notes",
+    "empty": "No notes found."
   },
   "notes": {
     "title": "Add Note",
@@ -59,6 +71,7 @@
     "book": "Book",
     "chapter": "Chapter",
     "verse": "Verse",
-    "close": "Close"
+    "close": "Close",
+    "error_access": "Unable to access the Bible version: {version}"
   }
 }

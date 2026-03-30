@@ -13,22 +13,34 @@
     "lang_label": "Langue de l'application",
     "font_label": "Taille de la police",
     "font_demo": "Ceci est un texte de démonstration...",
+    "theme_label": "Thème de l'application",
+    "theme_light": "Mode Clair",
+    "theme_dark": "Mode Sombre",
+    "layout_label": "Mise en page des versets",
+    "layout_para": "Paragraphe (Continu)",
+    "layout_line": "Ligne par ligne",
     "book_mode_label": "Mode de sélection des livres",
     "book_mode_grid": "Grille (Abréviations)",
     "book_mode_list": "Liste (Noms complets)",
-    "notif_time_label": "Heure du verset du jour"
+    "notif_enable_label": "Activer le verset du jour",
+    "notif_time_label": "Heure du verset du jour",
+    "notif_permission_denied": "Les notifications sont désactivées. Veuillez les activer dans les paramètres du navigateur."
   },
   "history": {
-    "title": "Lectures récentes"
+    "title": "Lectures récentes",
+    "empty": "Aucun historique récent trouvé."
   },
   "bookmarks": {
-    "title": "Signets"
+    "title": "Signets",
+    "empty": "Aucun signet trouvé."
   },
   "highlights": {
-    "title": "Surlignages"
+    "title": "Surlignages",
+    "empty": "Aucun verset surligné trouvé."
   },
   "all_notes": {
-    "title": "Notes de versets"
+    "title": "Notes de versets",
+    "empty": "Aucune note trouvée."
   },
   "notes": {
     "title": "Ajouter une note",
@@ -59,6 +71,7 @@
     "book": "Livre",
     "chapter": "Chapitre",
     "verse": "Verset",
-    "close": "Fermer"
+    "close": "Fermer",
+    "error_access": "Impossible d'accéder à la version de la Bible: {version}"
   }
 }

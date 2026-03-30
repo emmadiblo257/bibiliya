@@ -58,7 +58,7 @@ header {
     align-items: center;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 2500;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     width: 100%;
 }
@@ -107,7 +107,7 @@ header {
     width: 280px;
     height: 100vh;
     background-color: var(--drawer-bg);
-    z-index: 1000;
+    z-index: 4001;
     transition: left 0.3s ease;
     box-shadow: 2px 0 12px rgba(0, 0, 0, 0.3);
 }
@@ -224,7 +224,7 @@ body.dark-theme .drawer-item i {
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
     display: none;
-    z-index: 999;
+    z-index: 4000;
 }
 
 .overlay.show {
@@ -251,6 +251,7 @@ main {
     color: var(--subheading-color);
     margin: 20px 0 10px 0;
     font-size: 16px;
+    text-align: center;
 }
 
 .verse {
@@ -307,8 +308,15 @@ body.dark-theme .verse.selected {
     max-width: 600px;
     height: 100vh;
     background-color: var(--modal-bg);
-    z-index: 2000;
+    z-index: 3000;
     display: none;
+}
+
+.modal-partial {
+    top: 56px;
+    height: calc(100vh - 56px);
+    z-index: 3100;
+    /* Above regular modal if needed, but definitely above header 2500 */
 }
 
 .modal.show {
@@ -488,6 +496,32 @@ body.dark-theme .verse-item {
     transition: transform 0.3s;
 }
 
+/* Verse Layouts */
+.layout-para .verse {
+    display: inline;
+    margin-right: 4px;
+}
+
+.layout-para .verse-num {
+    font-size: 0.7em;
+    vertical-align: super;
+    margin-right: 2px;
+}
+
+.layout-line .verse {
+    display: block;
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.layout-line .verse-num {
+    display: inline-block;
+    width: 30px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
 #highlight-colors {
     position: absolute;
     bottom: 60px;
@@ -540,10 +574,6 @@ body.dark-theme .verse-item {
     color: #212121;
 }
 
-.layout-list .verse {
-    display: block;
-    margin-bottom: 10px;
-}
 
 .hidden {
     display: none !important;
